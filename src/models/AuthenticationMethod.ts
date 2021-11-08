@@ -5,12 +5,13 @@ export class AuthenticationMethod extends Model {
   id: string
   identifier: string
   password?: string
+  account!: Account
 
   static get tableName() {
     return 'authentication_methods'
   }
 
-  relationMappings = () => ({
+  static relationMappings = () => ({
     account: {
       relation: Model.BelongsToOneRelation,
       modelClass: Account,

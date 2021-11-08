@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "knex": "0.95",
+    "knex": "0.95.13",
     "objection": "^3.0.0-rc.2"
   },
   "devDependencies": {

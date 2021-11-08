@@ -4,12 +4,13 @@ import { AuthenticationMethod } from './AuthenticationMethod';
 export class Account extends Model {
   id: string
   email: string
-  
+  authenticationMethods!: AuthenticationMethod[]
+
   static get tableName() {
     return 'accounts';
   }
 
-  static relationMappings = {
+  static relationMappings = () => ({
     authenticationMethods: {
       relation: Model.HasManyRelation,
       modelClass: AuthenticationMethod,
@@ -18,7 +19,7 @@ export class Account extends Model {
         to: 'authentication_methods.account_id'
       }
     }
-  }
+  })
 
   accountId() {
     return this.id
